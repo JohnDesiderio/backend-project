@@ -20,7 +20,12 @@ def groupme():
     elif data['text'].startswith('/queue'):
         controller.queue_a_song(data['text'][6:])
     
+    return Response(
+        'Most people prolly will not be able to see this',
+        mimetype='application/json'
+    )
 
+        
 @app.route('/token', methods=['GET'])
 def receive_token():
     data = request.values.to_dict()
