@@ -117,7 +117,7 @@ class QueueMaster(object):
                                 'Authorization': f"Bearer {self.access_token}"
                             })
 
-        if req.status_code === 204:
+        if req.status_code == 204:
             send_message('Song successfully added to the queue')
         else:
             send_message('Something went wrong, only Mary has access to these features...\nMake her sign in using the /signin command')
