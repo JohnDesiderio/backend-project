@@ -7,10 +7,6 @@ app = Flask(__name__)
 
 controller = QueueMaster()
 
-@app.route('/', methods=['GET', 'POST'])
-def webhook():
-    return "Ok", 200
-
 @app.route('/groupme', methods=['GET', 'POST'])
 def groupme():
     data = request.get_json()
@@ -21,8 +17,8 @@ def groupme():
         controller.queue_a_song(data['text'][6:])
     
     return Response(
-        'Most people prolly will not be able to see this',
-        mimetype='application/json'
+        '<h1>Most people prolly will not be able to see this</h1>',
+        mimetype='text/html'
     )
 
         
@@ -33,8 +29,8 @@ def receive_token():
     controller.retrieve_access_token(data['code'])
 
     return Response(
-        'The groupchat is connected to Spotify. You can exit this webpage.',
-        mimetype='application/json'
+        '<h1>The groupchat is connected to Spotify. You can exit this webpage.</h1>',
+        mimetype='text/html'
     )
 
 if __name__ == '__main__':
